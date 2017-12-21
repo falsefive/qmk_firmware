@@ -18,12 +18,12 @@ enum chimera_ortho_layers {
 
 #define KC_NMPD TG(_NUMPAD)
 #define KC_SYMB TG(_SYMBOLS)
-#define KC_SPFN LT(_NAV,KC_EQL)
+#define KC_SPFN LT(_NAV, KC_EQL)
 #define KC_SCTL MT(MOD_LCTL, KC_LBRC)
 #define KC_SCTR MT(MOD_LCTL, KC_RBRC)
 #define KC_SPLT MT(MOD_LALT, KC_MINS)
 #define KC_SPRT MT(MOD_LALT, KC_1)
-#define KC_GBRC MT(MOD_RGUI, KC_8)
+//#define KC_GBRC MT(MOD_RGUI, KC_8)
 #define KC_GQOT MT(MOD_LGUI, KC_QUOT)
 #define KC_MESC LT(_MACROS, KC_ESC)
 #define KC_INCL M(0)
@@ -31,9 +31,13 @@ enum chimera_ortho_layers {
 #define KC_PUSH M(2)
 #define KC_SCAP M(3)
 #define KC_SCOF M(4)
-#define KC_CAD LALT(LCTL(KC_DEL))
+#define KC_MLOK LALT(LCTL(KC_L))
+#define KC_ROTB LCTL(LSFT(KC_T))
+#define KC_SCRL LALT(LCTL(KC_LEFT))
+#define KC_SCRR LALT(LCTL(KC_RGHT))
+//#define KC_CAD LALT(LCTL(KC_DEL))
 
-#define LONGPRESS_DELAY 150
+#define LONGPRESS_DELAY 150v
 //#define LAYER_TOGGLE_DELAY 300
 
 // Fillers to make layering more clear
@@ -49,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
      TAB , A  , S  , D  , F  , G  ,SPLT,      SPRT, H  , J  , K  , L  ,SCLN,ENT ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-     LSPO, Z  , X  , C  , V  , B  ,SPFN,      GBRC, N  , M  ,COMM,DOT ,SLSH,RSPC,
+     LSPO, Z  , X  , C  , V  , B  ,SPFN,      SPFN, N  , M  ,COMM,DOT ,SLSH,RSPC,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-                         NMPD,BSPC,                SPC ,SYMB
+                         NMPD,BSPC,                 SPC,SYMB
   // \------------------+----+----+---/       \---+----+----+-------------------/
   ),
 
@@ -69,19 +73,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NUMPAD] = KEYMAP(
   //,----+----+----+----+----+----+----.     ,----+----+----+----+----+----+----.
-         ,    ,COLN,    ,    ,    ,    ,          ,    , 7  , 8  , 9  ,ASTR,MINS,
+         ,    ,COLN,    ,    ,    ,    ,          , 7  , 8  , 9  ,PLUS,ASTR,    ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-         ,    ,DOT ,    ,    ,    ,    ,          ,    , 4  , 5  , 6  ,PLUS,    ,
+         ,    ,DOT ,    ,    ,    ,    ,          , 4  , 5  , 6  ,MINS,SLSH,    ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,          ,    , 1  , 2  , 3  ,SLSH,    ,
+         ,    ,    ,    ,    ,    ,    ,          , 1  , 2  , 3  ,    ,    ,    ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-                             ,    ,                     , 0
+                             ,    ,                 0  ,
   // \------------------+----+----+---/       \---+----+----+-------------------/
   ),
 
   [_SYMBOLS] = KEYMAP(
   //,----+----+----+----+----+----+----.     ,----+----+----+----+----+----+----.
-         ,EXLM, AT ,HASH,DLR ,PERC,    ,          ,CIRC,AMPR,ASTR,LPRN,RPRN,BSLS,
+         ,EXLM,AT  ,HASH,DLR ,PERC,    ,          ,CIRC,AMPR,ASTR,LPRN,RPRN,BSLS,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
          , F1 , F2 , F3 , F4 , F5 ,    ,          ,TILD,COLN,UNDS,LCBR,RCBR,    ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
@@ -93,11 +97,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NAV] = KEYMAP(
   //,----+----+----+----+----+----+----.     ,----+----+----+----+----+----+----.
-         ,    ,    ,    ,    ,    ,    ,          ,    ,    , UP ,    ,PSCR,    ,
+         ,    ,    ,    ,    ,    ,    ,          ,HOME, UP ,END ,PGUP,PSCR,    ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,          ,    ,LEFT,DOWN,RGHT,    ,    ,
+         ,    ,    ,    ,    ,    ,    ,          ,LEFT,DOWN,RGHT,PGDN,    ,    ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-         ,    ,    ,    ,    ,    ,    ,          ,    ,PGUP,PGDN,    ,    ,    ,
+         ,    ,    ,    ,    ,    ,    ,          ,    ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
                              ,DEL ,                    ,
   // \------------------+----+----+---/       \---+----+----+-------------------/
@@ -105,13 +109,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_MACROS] = KEYMAP(
   //,----+----+----+----+----+----+----.     ,----+----+----+----+----+----+----.
-         ,    ,    ,    ,    ,    ,    ,          ,    ,    ,INCL,    ,    ,    ,
+         ,    ,    ,    ,    ,ROTB,    ,          ,    ,    ,    ,    ,    ,    ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-         ,    ,    ,CAD ,    ,    ,    ,          ,    ,    ,    ,    ,    ,    ,
+         ,    ,    ,    ,    ,    ,    ,          ,    ,    ,    ,MLOK,    ,    ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
      SCAP,    ,    ,    ,    ,    ,    ,          ,    ,    ,PULL,PUSH,    ,SCAP,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-                             ,    ,                    ,
+                             ,    ,                SCRL,SCRR
   // \------------------+----+----+---/       \---+----+----+-------------------/
   )
 
@@ -153,6 +157,16 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
                 layer_off(_CAPS);
                 register_code(KC_CAPSLOCK);
                 unregister_code(KC_CAPSLOCK);
+            }
+            break;
+        case 5:
+            if (record->event.pressed) {
+
+            }
+            break;
+        case 6:
+            if (record->event.pressed) {
+
             }
             break;
     }
