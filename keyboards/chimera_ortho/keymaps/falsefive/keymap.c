@@ -23,7 +23,7 @@ enum chimera_ortho_layers {
 #define KC_SCTR MT(MOD_LCTL, KC_RBRC)
 #define KC_SPLT MT(MOD_LALT, KC_MINS)
 #define KC_SPRT MT(MOD_LALT, KC_1)
-//#define KC_GBRC MT(MOD_RGUI, KC_8)
+#define KC_GBRC MT(MOD_RGUI, KC_8)
 #define KC_GQOT MT(MOD_LGUI, KC_QUOT)
 #define KC_MESC LT(_MACROS, KC_ESC)
 #define KC_INCL M(0)
@@ -49,11 +49,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = KEYMAP(
   //,----+----+----+----+----+----+----.     ,----+----+----+----+----+----+----.
-     MESC, Q  , W  , E  , R  , T  ,SCTL,      SCTR, Y  , U  , I  , O  , P  ,QUOT,
+     MESC, Q  , W  , E  , R  , T  ,SPFN,      DEL , Y  , U  , I  , O  , P  ,QUOT,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
      TAB , A  , S  , D  , F  , G  ,SPLT,      SPRT, H  , J  , K  , L  ,SCLN,ENT ,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
-     LSPO, Z  , X  , C  , V  , B  ,SPFN,      SPFN, N  , M  ,COMM,DOT ,SLSH,RSPC,
+     LSPO, Z  , X  , C  , V  , B  ,SCTL,      SCTR, N  , M  ,COMM,DOT ,SLSH,RSPC,
   //|----+----+----+----+----+----+----|     |----+----+----+----+----+----+----|
                          NMPD,BSPC,                 SPC,SYMB
   // \------------------+----+----+---/       \---+----+----+-------------------/
